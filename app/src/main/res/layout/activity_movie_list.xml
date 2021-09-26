@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="MovieListActivity"
+            type="com.example.namayesh.MovieListActivity" />
+
+        <variable
+            name="OnClickViewListenerOnMovieListActivity"
+            type="com.example.namayesh.MovieListActivity.OnClickViewListenerOnMovieListActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:background="@color/purple_500"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MovieListActivity">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_selected_movie_list"
+                app:popupTheme="@style/MyDarkToolbarStyle"
+                android:background="@color/purple_200"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <RelativeLayout
+                    android:background="@color/purple_200"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize">
+
+                    <ImageView
+                        android:id="@+id/img_back_selected_movie_list"
+                        android:onClick="@{(v) -> OnClickViewListenerOnMovieListActivity.onClickback(v,MovieListActivity)}"
+                        app:srcCompat="@drawable/back"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt_toolbar_title_selected_movie_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/img_back_selected_movie_list"
+                        android:text="@{MovieListActivity.selectedMovie , default=TopMovie}"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/purple_500"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/search_movie_list_activity"
+                        android:layout_toEndOf="@+id/img_back_selected_movie_list"
+                        android:layoutDirection="rtl"
+                        app:iconifiedByDefault="true"
+                        android:layout_marginStart="8dp"
+                        app:queryHint="search for movies by Name"
+                        android:layout_centerVertical="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"/>
+
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/purple_500"
+            android:id="@+id/rv_selected_movie_list"
+            android:layout_below="@+id/toolbar_selected_movie_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+</layout>

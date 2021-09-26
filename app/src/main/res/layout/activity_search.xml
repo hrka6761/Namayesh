@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="SearchActivity"
+            type="com.example.namayesh.SearchActivity" />
+
+        <variable
+            name="OnClickViewListenerOnSearchActivity"
+            type="com.example.namayesh.SearchActivity.OnClickViewListenerOnSearchActivity" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".SearchActivity">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            app:popupTheme="@style/MyDarkToolbarStyle"
+            android:id="@+id/toolbar_search_activity"
+            android:background="@color/purple_500"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <RelativeLayout
+                android:background="@color/purple_500"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back_search_activity"
+                    android:onClick="@{(v) -> OnClickViewListenerOnSearchActivity.onClickBack(v,SearchActivity)}"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_search_activity"
+                    android:layout_toEndOf="@+id/back_search_activity"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    app:queryHint="search for movies by Name"
+                    app:iconifiedByDefault="false"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"/>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search_activity"
+                android:layout_below="@+id/toolbar_search_activity"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+    </RelativeLayout>
+
+</layout>

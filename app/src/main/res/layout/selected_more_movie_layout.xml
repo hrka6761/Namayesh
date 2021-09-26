@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="MovieModel"
+            type="com.example.namayesh.models.MovieModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/item_selected_more_movie_layout"
+        android:background="@color/purple_500"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/teal_200"
+            app:cardCornerRadius="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="170dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <TextView
+                    android:id="@+id/txt_name_selected_more_movie_layout"
+                    android:text="@{MovieModel.name , default=name}"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/purple_500"
+                    android:layout_marginStart="164dp"
+                    android:layout_width="190dp"
+                    android:layout_height="50dp"/>
+
+                <TextView
+                    android:id="@+id/txt_director_selected_more_movie_layout"
+                    android:layout_below="@+id/txt_name_selected_more_movie_layout"
+                    android:text="@{MovieModel.director , default=name}"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="bottom"
+                    android:textColor="@color/purple_500"
+                    android:textStyle="bold"
+                    android:layout_marginStart="164dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"/>
+
+                <TextView
+                    android:id="@+id/txt_publish_date_selected_more_movie_layout"
+                    android:layout_below="@+id/txt_director_selected_more_movie_layout"
+                    android:text="@{MovieModel.publish_date , default=name}"
+                    android:gravity="center"
+                    android:textColor="@color/purple_500"
+                    android:layout_marginStart="164dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+                <TextView
+                    android:id="@+id/txt_rate_imdb_selected_more_movie_layout"
+                    android:layout_below="@+id/txt_publish_date_selected_more_movie_layout"
+                    android:text="@{MovieModel.rate_imdb , default=name}"
+                    android:gravity="center"
+                    android:textColor="@color/purple_500"
+                    android:layout_marginStart="164dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+
+                <ImageView
+                    android:id="@+id/img_favorite_selected_more_movie_layout"
+                    android:layout_margin="8dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/unfavorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <RelativeLayout
+                    android:layout_marginStart="155dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/txt_rate_imdb_selected_more_movie_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/img_time_selected_more_movie_layout"
+                        android:layout_centerVertical="true"
+                        app:srcCompat="@drawable/time_yellow"
+                        android:layout_margin="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt_time_selected_more_movie_layout"
+                        android:layout_toEndOf="@+id/img_time_selected_more_movie_layout"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="@color/purple_500"
+                        android:text="@{MovieModel.time , default=name}"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"/>
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/purple_200"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="140dp"
+            android:layout_height="200dp">
+
+            <ImageView
+                SetSlideImage="@{MovieModel.link_img}"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+
+</layout>

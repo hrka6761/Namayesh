@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="MovieModel"
+            type="com.example.namayesh.models.MovieModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_animation_home_layout"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="3dp"
+        app:cardBackgroundColor="@color/teal_200">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/img_animation_home_layout"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+
+                <ImageView
+                    app:SetSlideImage="@{MovieModel.link_img}"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/txt_name_animation_home_layout"
+                android:layout_below="@+id/img_animation_home_layout"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/purple_500"
+                android:text="@{MovieModel.name}"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <RelativeLayout
+                android:layout_below="@+id/txt_name_animation_home_layout"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp">
+
+                <ImageView
+                    android:id="@+id/img_time_animation_home_layout"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/time_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txt_time_animation_home_layout"
+                    android:layout_toEndOf="@+id/img_time_animation_home_layout"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/purple_500"
+                    android:text="@{MovieModel.time}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/purple_500"
+                    android:text="@{MovieModel.director}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
+

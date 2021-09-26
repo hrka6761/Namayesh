@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:background="@color/purple_500"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FavoriteActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            app:popupTheme="@style/MyDarkToolbarStyle"
+            android:id="@+id/toolbar_favorite_activity"
+            android:background="@color/purple_200"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <RelativeLayout
+                android:background="@color/purple_200"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back_favorite_activity"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txt_toolbar_title_favorite_activity"
+                    android:text="Favorite"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/back_favorite_activity"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/purple_500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_favorite_activity"
+                    android:layout_toEndOf="@+id/back_favorite_activity"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    app:queryHint="search for movies by Name"
+                    android:layoutDirection="rtl"
+                    app:iconifiedByDefault="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"/>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorite_activity"
+            android:layout_below="@+id/toolbar_favorite_activity"
+            android:layout_margin="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </RelativeLayout>
+
+
+</layout>

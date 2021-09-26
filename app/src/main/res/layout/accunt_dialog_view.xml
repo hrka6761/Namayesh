@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="MovieDetailsActivity"
+            type="com.example.namayesh.MovieDetailsActivity" />
+
+        <variable
+            name="OnClickViewListenerOnMoviedetailsActivity"
+            type="com.example.namayesh.MovieDetailsActivity.OnClickViewListenerOnMoviedetailsActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:background="@color/teal_200"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_accunt_dialog"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="your accunt is depricated\ndo you want to buy credit ?"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_accunt_dialog"
+            android:orientation="horizontal"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_gotocredit_accunt_dialog"
+                android:text="Go to credit"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickAccuntGoToCredite(v,MovieDetailsActivity)}"
+                android:layout_margin="2dp"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_cancel_accunt_dialog"
+                android:text="cancel"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickAccuntCancel(v,MovieDetailsActivity)}"
+                android:layout_margin="2dp"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

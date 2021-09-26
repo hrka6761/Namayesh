@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="MovieDetailsActivity"
+            type="com.example.namayesh.MovieDetailsActivity" />
+
+        <variable
+            name="OnClickViewListenerOnMoviedetailsActivity"
+            type="com.example.namayesh.MovieDetailsActivity.OnClickViewListenerOnMoviedetailsActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        tools:context=".MovieDetailsActivity">
+
+        <RelativeLayout
+            android:id="@+id/header_movie_detail_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_header_movie_detail_activity"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickPlay(v,MovieDetailsActivity)}"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="95dp"
+                app:srcCompat="@drawable/play" />
+
+            <ImageView
+                android:id="@+id/img_download_movie_detail_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickDownload(v,MovieDetailsActivity)}"
+                app:srcCompat="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/img_comment_movie_detail_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_toStartOf="@+id/img_download_movie_detail_activity"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickComment(v)}"
+                app:srcCompat="@drawable/comment" />
+
+            <ImageView
+                android:id="@+id/img_back_movie_detail_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:onClick="@{(v) -> OnClickViewListenerOnMoviedetailsActivity.onClickback(v,MovieDetailsActivity)}"
+                app:srcCompat="@drawable/back" />
+
+            <TextView
+                android:id="@+id/txt_name_movie_detail_activity"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/img_header_movie_detail_activity"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/style_name_movie"
+                android:gravity="center"
+                android:text="@{MovieDetailsActivity.selectedMovie.name}"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header_movie_detail_activity"
+            android:layout_marginTop="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/details_movie_detail_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/style_details_movie">
+
+                    <TextView
+                        android:id="@+id/txt_director_movie_detail_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@{MovieDetailsActivity.selectedMovie.director}"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/txt_rate_imdb_movie_detail_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/style_txt_publish_date"
+                        android:padding="4dp"
+                        android:text="@{MovieDetailsActivity.selectedMovie.rate_imdb}"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/txt_publish_date_movie_detail_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_rate_imdb_movie_detail_activity"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{MovieDetailsActivity.selectedMovie.publish_date}"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/txt_genre_date_movie_detail_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_publish_date_movie_detail_activity"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/style_genre_movie"
+                        android:padding="4dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="@{MovieDetailsActivity.selectedMovie.category}"
+                        android:textColor="@color/white" />
+
+
+                    <TextView
+                        android:id="@+id/txt_description_movie_detail_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_genre_date_movie_detail_activity"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/white" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_below="@+id/txt_description_movie_detail_activity"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            app:srcCompat="@drawable/time_yellow" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:text="@{MovieDetailsActivity.selectedMovie.time}"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/epizods"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/style_txt_publish_date"
+                    android:text="Epizods : "
+                    android:paddingStart="16dp"
+                    android:padding="4dp"
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/details_movie_detail_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_part_series_detail_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/epizods"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"/>
+
+
+                <TextView
+                    android:id="@+id/cast"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/style_txt_publish_date"
+                    android:text="Cast : "
+                    android:paddingStart="16dp"
+                    android:padding="4dp"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/rv_part_series_detail_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_artists_movie_detail_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cast"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"/>
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</layout>

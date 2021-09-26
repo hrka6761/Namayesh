@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="SerieEpizodModel"
+            type="com.example.namayesh.models.SerieEpizodModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/item_serie_epizod_layout"
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10dp"
+            android:id="@+id/img_serie_epizod_layout"
+            app:cardBackgroundColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                SetEpizodImage="@{SerieEpizodModel.epizod_link}"
+                android:scaleType="centerCrop"
+                android:layout_width="150dp"
+                android:layout_height="100dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/txt_part_serie_epizod_layout"
+            android:layout_below="@+id/img_serie_epizod_layout"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@{SerieEpizodModel.part}"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+</layout>

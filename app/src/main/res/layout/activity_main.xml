@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="MainActivity"
+            type="com.example.namayesh.MainActivity" />
+
+        <variable
+            name="OnClickViewListenerOnMainActivity"
+            type="com.example.namayesh.MainActivity.OnClickViewListenerOnMainActivity" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/purple_200">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="60dp"
+                            android:layout_toEndOf="@+id/img_hamber_menu"
+                            android:text="Namayesh"
+                            android:textColor="@color/purple_500"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/img_hamber_menu"
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickDrawerHamberMenu(v,drawer)}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="12dp"
+                            app:srcCompat="@drawable/menu" />
+
+                        <ImageView
+                            android:id="@+id/img_search"
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickSearch(v,MainActivity)}"
+                            app:srcCompat="@drawable/search"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="16dp"
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/toolbar"
+                    android:background="@color/purple_500">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:background="@color/purple_500"
+                            app:tabBackground="@drawable/style_bg_tab"
+                            app:tabGravity="center"
+                            app:tabIndicatorHeight="0dp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            app:cardCornerRadius="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@color/purple_200">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_centerInParent="true"
+                                    android:text="Select Your Movie Genre Below"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_genre_movie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardview_more_top_movie"
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickTopMovie(v,MainActivity)}"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            app:cardCornerRadius="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@color/purple_200">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:text="Top Movie"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:text="More >>"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_top_movie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <androidx.cardview.widget.CardView
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickNewMovie(v,MainActivity)}"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            app:cardCornerRadius="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@color/purple_200">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:text="New Movie"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:text="More >>"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_new_movie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickNewAnimation(v,MainActivity)}"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            app:cardCornerRadius="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@color/purple_200">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:text="new Animation"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:text="More >>"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_animation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:onClick="@{(v) -> OnClickViewListenerOnMainActivity.onClickNewSeries(v,MainActivity)}"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            app:cardCornerRadius="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@color/purple_200">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="12dp"
+                                    android:text="New Series"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="12dp"
+                                    android:text="More >>"
+                                    android:textColor="@color/teal_700"
+                                    android:textStyle="bold|italic" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_series"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                </androidx.core.widget.NestedScrollView>
+
+
+            </RelativeLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation"
+            app:menu="@menu/drawer_home_menu"
+            app:headerLayout="@layout/header_drawer_menu_home"
+            android:background="@color/teal_200"
+            android:layout_gravity="start"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</layout>

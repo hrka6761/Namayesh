@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+
+        <variable
+            name="MovieModel"
+            type="com.example.namayesh.models.MovieModel" />
+        
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_new_movie_home_layout"
+        android:layout_margin="3dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="10dp"
+        android:layout_width="105dp"
+        android:layout_height="210dp">
+
+    <RelativeLayout
+        android:layout_width="105dp"
+        android:layout_height="210dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="3dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/img_top_movie_home_layout"
+            app:cardCornerRadius="10dp"
+            android:layout_width="105dp"
+            android:layout_height="120dp">
+
+          <RelativeLayout
+              android:gravity="center"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+              <ImageView
+                  SetSlideImage="@{MovieModel.link_img}"
+                  android:scaleType="centerCrop"
+                  android:layout_width="105dp"
+                  android:layout_height="120dp"/>
+
+              <TextView
+                  android:gravity="center"
+                  android:text="@{MovieModel.publish_date , default = knflkdn}"
+                  android:textStyle="bold"
+                  android:background="@drawable/style_txt_publish_date"
+                  android:textColor="@color/red"
+                  android:layout_alignParentBottom="true"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+
+
+          </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        
+        <TextView
+            android:id="@+id/txt_name_top_movie_home_layout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@+id/img_top_movie_home_layout"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp"
+            android:text="@{MovieModel.name , default=ThemitchellsvstheMachines}"
+            android:textColor="@color/purple_500"
+            android:layout_width="100dp"
+            android:layout_height="55dp"/>
+
+        <RelativeLayout
+            android:id="@+id/time_top_movie_home_layout"
+            android:layout_marginBottom="2dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom|start"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_time_top_movie_home_layout"
+                app:srcCompat="@drawable/time_yellow"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_time_top_movie_home_layout"
+                android:text="@{MovieModel.time , default=H55M}"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/img_time_top_movie_home_layout"
+                android:textColor="@color/purple_500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    
+    
+    
+</layout>
